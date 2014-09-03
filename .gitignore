@@ -36,3 +36,4 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+_test.js

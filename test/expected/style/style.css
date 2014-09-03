@@ -1,0 +1,19 @@
+.bg {
+    background: url(http://lisposter.b0.upaiyun.com/style/_img/main-bg.png) no-repeat;
+}
+
+.bg {
+    background: url(http://lisposter.b0.upaiyun.com/img/main-bg.png) no-repeat;
+}
+
+.bg-q {
+    background: url('http://lisposter.b0.upaiyun.com/img/main-bg-q.png') no-repeat;
+}
+
+.bg-q {
+    background: url("http://lisposter.b0.upaiyun.com/img/main-bg-dq.png") no-repeat;
+}
+
+.bg-abs {
+    background: url('http://lisposter.b0.upaiyun.com/img/main-bg-abs.png') no-repeat;
+}

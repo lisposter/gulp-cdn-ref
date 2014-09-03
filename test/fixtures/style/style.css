@@ -1,0 +1,19 @@
+.bg {
+    background: url(_img/main-bg.png) no-repeat;
+}
+
+.bg {
+    background: url(../img/main-bg.png) no-repeat;
+}
+
+.bg-q {
+    background: url('../img/main-bg-q.png') no-repeat;
+}
+
+.bg-q {
+    background: url("../img/main-bg-dq.png") no-repeat;
+}
+
+.bg-abs {
+    background: url('/img/main-bg-abs.png') no-repeat;
+}
