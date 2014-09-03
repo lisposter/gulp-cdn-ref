@@ -68,7 +68,7 @@ so, the `config` may be:
 ```js
 var config = {
     cdn: 'http://lisposter.b0.upaiyun.com',
-    base: 'public'  
+    base: 'project'
 }
 ```
 
