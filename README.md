@@ -1,5 +1,5 @@
 # gulp-cdn-ref
-change urls in css files to cdn-based version (will support js file soon)
+change urls in css/js files to cdn-based version
 
 # install 
 ```

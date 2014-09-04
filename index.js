@@ -16,23 +16,23 @@ function replace(config) {
         if(cssre.test(file.path)) {
             files.css.push(file);
         } else if(jsre.test(file.path)) {
-            files.js.push();
+            files.js.push(file);
         }
         cb();
     }, function(cb) {
         var ctx = this;
         Object.keys(files).forEach(function(type) {
-            if(type === 'css') parseCss(files.css, ctx);
+            if(type === 'css') parser(/url\((.*)\)/g, files.css, ctx);
+            if(type === 'js') parser(/src\s*=\s*['"](.*)['"]/g, files.js, ctx);
         });
         cb();
     });
 
-    function parseCss(files, ctx) {
-        var re = /url\((.*)\)/g;
+    function parser(re, files, ctx) {
 
         files.forEach(function(file) {
             var contents = file.contents.toString();
-            var cssLocation = path.dirname(file.path);
+            var filePath = path.dirname(file.path);
 
             var matches = [];
             var m = re.exec(contents);
@@ -45,7 +45,7 @@ function replace(config) {
                 var url = '';
 
                 if(matched.indexOf('/') !== 0) {
-                    var tmp = path.resolve(cssLocation, matched);
+                    var tmp = path.resolve(filePath, matched);
                     tmpPaths = tmp.split(path.sep);
                     tmpPaths = tmpPaths.slice(tmpPaths.indexOf(config.base) + 1);
                     url = config.cdn + '/' + path.join.apply(null, tmpPaths);
@@ -63,6 +63,7 @@ function replace(config) {
 
         });
     }
+
 }
 
 module.exports = replace;
