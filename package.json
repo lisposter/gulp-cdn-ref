@@ -1,10 +1,12 @@
 {
   "name": "gulp-cdn-ref",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "change urls in css/js files to cdn-based version",
   "main": "index.js",
   "dependencies": {
     "gulp-util": "^3.0.1",
+    "html-select": "^2.3.15",
+    "html-tokenize": "^1.1.2",
     "through2": "^0.6.1"
   },
   "devDependencies": {},
