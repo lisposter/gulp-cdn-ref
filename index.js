@@ -81,7 +81,7 @@ function replace(config) {
             stream.write(file.contents.toString());
             stream.pipe(tokenize()).pipe(select('img', function(e) {
                 var _src = e.getAttribute('src');
-                var url = ''
+                var url = '';
 
                 if(_src.indexOf('/') !== 0) {
                     var tmp = path.resolve(filePath, _src);
@@ -97,7 +97,7 @@ function replace(config) {
                     this.push([row[0], row[1]]);
                     next();
                 });
-                tr.pipe(e.createStream()).pipe(tr)
+                tr.pipe(e.createStream()).pipe(tr);
             })).pipe(through.obj(function(row, buf, next) {
                 this.push(row[1]);
                 next();
@@ -107,12 +107,12 @@ function replace(config) {
             }).on('end', function() {
                 file.contents = Buffer.concat(fileBuf);
                 ctx.push(file);
-            })
+            });
 
             stream.end();
 
             
-        })
+        });
     }
 
 }
