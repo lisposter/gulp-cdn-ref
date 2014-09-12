@@ -76,6 +76,7 @@ function replace(config) {
         
         files.forEach(function(file) {
             var fileBuf = [];
+            var filePath = path.dirname(file.path);
 
             var stream = through();
             stream.write(file.contents.toString());
@@ -93,6 +94,44 @@ function replace(config) {
                 }
 
                 e.setAttribute('src', url);
+                var tr = through.obj(function(row, enc, next) {
+                    this.push([row[0], row[1]]);
+                    next();
+                });
+                tr.pipe(e.createStream()).pipe(tr);
+            })).pipe(select('script', function(e) {
+                var _src = e.getAttribute('src');
+                var url = '';
+
+                if(_src.indexOf('/') !== 0) {
+                    var tmp = path.resolve(filePath, _src);
+                    tmpPaths = tmp.split(path.sep);
+                    tmpPaths = tmpPaths.slice(tmpPaths.indexOf(config.base) + 1);
+                    url = config.cdn + '/' + path.join.apply(null, tmpPaths);
+                } else {
+                    url = config.cdn + _src;
+                }
+
+                e.setAttribute('src', url);
+                var tr = through.obj(function(row, enc, next) {
+                    this.push([row[0], row[1]]);
+                    next();
+                });
+                tr.pipe(e.createStream()).pipe(tr);
+            })).pipe(select('link', function(e) {
+                var _src = e.getAttribute('href');
+                var url = '';
+
+                if(_src.indexOf('/') !== 0) {
+                    var tmp = path.resolve(filePath, _src);
+                    tmpPaths = tmp.split(path.sep);
+                    tmpPaths = tmpPaths.slice(tmpPaths.indexOf(config.base) + 1);
+                    url = config.cdn + '/' + path.join.apply(null, tmpPaths);
+                } else {
+                    url = config.cdn + _src;
+                }
+
+                e.setAttribute('href', url);
                 var tr = through.obj(function(row, enc, next) {
                     this.push([row[0], row[1]]);
                     next();

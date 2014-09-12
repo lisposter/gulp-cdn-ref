@@ -1,6 +1,6 @@
 {
   "name": "gulp-cdn-ref",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "description": "change urls in css/js files to cdn-based version",
   "main": "index.js",
   "dependencies": {
@@ -9,7 +9,9 @@
     "html-tokenize": "^1.1.2",
     "through2": "^0.6.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
