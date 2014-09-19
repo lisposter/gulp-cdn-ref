@@ -1,7 +1,7 @@
 # gulp-cdn-ref
-change urls in css/js files to cdn-based version
+change urls in html/css/js files to cdn-based version
 
-# install 
+# install
 ```
 $ npm i gulp-cdn-ref --save-dev
 ```
@@ -21,7 +21,7 @@ gulp.task('cdnref',function(){
 });
 ```
 
-and 
+and
 
 ```
 $ gulp cdnref
@@ -48,9 +48,9 @@ eg. here is a files tree:
 
 ```
 project
-├── style 
+├── style
 │   └── style.css
-├── assets 
+├── assets
 │   └── images
 |           └── bg.png
 ```
