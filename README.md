@@ -1,4 +1,6 @@
 # gulp-cdn-ref
+DEPRECATED, use [https://www.npmjs.org/package/gulp-cdn-absolute-path/](https://www.npmjs.org/package/gulp-cdn-absolute-path/)
+
 change urls in html/css/js files to cdn-based version
 
 # install
