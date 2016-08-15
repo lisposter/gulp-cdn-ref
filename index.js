@@ -103,7 +103,7 @@ function replace(config) {
                 var _src = e.getAttribute('src');
                 var url = '';
 
-                if(_src.indexOf('/') !== 0) {
+                if(_src && _src.indexOf('/') !== 0) {
                     var tmp = path.resolve(filePath, _src);
                     tmpPaths = tmp.split(path.sep);
                     tmpPaths = tmpPaths.slice(tmpPaths.indexOf(config.base) + 1);
